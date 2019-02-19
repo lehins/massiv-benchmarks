@@ -1,0 +1,8 @@
+resolver: lts-12.26
+packages:
+- .
+- ../../massiv/massiv-bench
+extra-deps:
+- ../../massiv/massiv
+- ../../massiv/massiv-scheduler
+- repa-algorithms-3.4.1.3
