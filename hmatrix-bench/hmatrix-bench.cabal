@@ -1,8 +1,8 @@
-name:           repa-bench
+name:           hmatrix-bench
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/lehins/repa-bench#readme>
-homepage:       https://github.com/lehins/repa-bench#readme
-bug-reports:    https://github.com/lehins/repa-bench/issues
+description:    Please see the README on GitHub at <https://github.com/lehins/hmatrix-bench#readme>
+homepage:       https://github.com/lehins/hmatrix-bench#readme
+bug-reports:    https://github.com/lehins/hmatrix-bench/issues
 author:         Alexey Kuleshevich
 maintainer:     alexey@kuleshevi.ch
 copyright:      2018 Alexey Kuleshevich
@@ -20,14 +20,12 @@ source-repository head
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Data.Massiv.Bench.Repa
-                     , Data.Massiv.Bench.Repa.Sobel
-                     , Data.Massiv.Bench.Repa.Matrix
+  exposed-modules:     Data.Massiv.Bench.HMatrix.Matrix
+                     , Data.Massiv.Bench.HMatrix.Vector
   build-depends:       base >=4.7 && <5
                      , criterion
                      , random
-                     , repa
-                     , repa-algorithms
+                     , hmatrix
                      , deepseq
                      , massiv
                      , massiv-bench
@@ -40,24 +38,22 @@ benchmark mult
   main-is:             Mult.hs
   ghc-options:         -O2 -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
-                     , repa
-                     , repa-algorithms
-                     , repa-bench
+                     , hmatrix
+                     , hmatrix-bench
                      , criterion
                      , deepseq
                      , massiv
                      , massiv-bench
   default-language:    Haskell2010
 
-benchmark sobel
+benchmark vector
   type:                exitcode-stdio-1.0
   hs-source-dirs:      bench
-  main-is:             Sobel.hs
+  main-is:             Vector.hs
   ghc-options:         -O2 -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
-                     , repa
-                     , repa-algorithms
-                     , repa-bench
+                     , hmatrix
+                     , hmatrix-bench
                      , criterion
                      , deepseq
                      , massiv

@@ -1,14 +1,24 @@
-resolver: lts-16.22
+resolver: lts-14.27
 packages:
 - .
-- ../../massiv/massiv-bench
 extra-deps:
 - ../../massiv/massiv
+- ../../massiv/massiv-bench
 - random-1.2.0@sha256:4321209c8faedc034810ea8ed0dbc4a36f1a1df97b75af024219f2f533da57de,6094
 - splitmix-0.1.0.3
-- repa-3.4.1.4@sha256:fab455d72a702f2d8a0c9be2de1d45ea1beb8f5949d8173bb95d2e7c515a6225,3323
-- repa-algorithms-3.4.1.3@sha256:d549d0d0d9534be7e89b1e995d1eaaf8cb97a450c033b4424d8ae192ac0e6b53,1955
 - pvar-1.0.0.0@sha256:3d4a6855b0960baee78f6956f082eb8aa1cede52d2955b7faef186d1133f7964,1893
 - primitive-0.7.1.0@sha256:6a237bb338bcc43193077ff8e8c0f0ce2de14c652231496a15672e8b563a07e2,2604
 - scheduler-1.5.0@sha256:8b43f2991bf9a720b12192ba99525f705a44aeae9541a7bd73fbc7e7b56fd8f0,2437
-- QuickCheck-2.14.2
+#- QuickCheck-2.14.2
+
+- accelerate-1.3.0.0
+- accelerate-llvm-1.3.0.0
+- accelerate-llvm-native-1.3.0.0
+- accelerate-blas-0.3.0.0@sha256:9b1c811fb6588c58274472d5560ae4d15fb39e921ecbe9276f332712a7e95985,6849
+- blas-hs-0.1.1.0@sha256:d4d0077495ea05712a355051a1ef74d9aa3d9ec8f607d3de1cfbdcc06ed81a95,3965
+
+flags:
+  accelerate-blas:
+    llvm-cpu: true
+    llvm-ptx: false
+allow-newer: true
