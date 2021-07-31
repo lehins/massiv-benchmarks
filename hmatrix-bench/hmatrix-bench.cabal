@@ -43,6 +43,7 @@ benchmark mult
                      , criterion
                      , deepseq
                      , massiv
+                     -- , massiv-simd
                      , massiv-bench
   default-language:    Haskell2010
 

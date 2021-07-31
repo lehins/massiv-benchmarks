@@ -25,11 +25,11 @@ import System.Random
 import Data.Typeable
 
 matrixToHMatrix ::
-     (A.Prim e, A.Manifest r A.Ix2 e, Element e) => A.Matrix r e -> Matrix e
+     (A.Prim e, A.Shape r A.Ix2, A.Source r e, Element e) => A.Matrix r e -> Matrix e
 matrixToHMatrix = fromLists . A.toLists
 
 vectorToHMatrix ::
-     (A.Prim e, A.Manifest r A.Ix1 e, Element e) => A.Vector r e -> Vector e
+     (A.Prim e, A.Source r e, Element e) => A.Vector r e -> Vector e
 vectorToHMatrix = fromList . A.toList
 
 data MxM e =
@@ -59,7 +59,7 @@ showSizeMxM MxM {..} = show m1 ++ "x" ++ show n1 ++ " X " ++ show m2 ++ "x" ++ s
 benchMxM :: forall e. (Typeable e, Container Vector e, Numeric e, Num e) => MxM e -> Benchmark
 benchMxM mxm@MxM {..} =
   bgroup (A.showsType @(MxM e) (" - (" ++ showSizeMxM mxm ++ ")"))
-  [ bench "Seq" $ whnf (aMxM LA.<>) bMxM
+  [ bench "Par" $ whnf (aMxM LA.<>) bMxM
   ]
 {-# INLINEABLE benchMxM #-}
 

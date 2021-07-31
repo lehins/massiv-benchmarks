@@ -27,7 +27,7 @@ import qualified Data.Array.Accelerate.Numeric.LinearAlgebra as LA
 
 
 vectorToAccelerate ::
-     (A.Prim e, A.Manifest r' A.Ix1 e, Elt e)
+     (A.Prim e, A.Manifest r' e, Elt e)
   => A.Vector r' e
   -> Array DIM1 e
 vectorToAccelerate arr = fromFunction (Z :. n) $ \(Z :. i) -> arr A.! i
@@ -35,7 +35,7 @@ vectorToAccelerate arr = fromFunction (Z :. n) $ \(Z :. i) -> arr A.! i
     A.Sz n = A.size arr
 
 matrixToAccelerate ::
-     (A.Prim e, A.Manifest r' A.Ix2 e, Elt e)
+     (A.Prim e, A.Manifest r' e, Elt e)
   => A.Matrix r' e
   -> Array DIM2 e
 matrixToAccelerate arr = fromFunction (Z :. m :. n) $ \(Z :. i :. j) -> arr A.! (i A.:. j)

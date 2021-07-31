@@ -19,7 +19,7 @@ import qualified Data.Massiv.Bench.Matrix as A
 import System.Random
 
 matrixToRepa ::
-     (A.Prim e, A.Manifest r' A.Ix2 e, Target r e)
+     (A.Prim e, A.Manifest r' e, Target r e)
   => A.Matrix r' e
   -> Array r DIM2 e
 matrixToRepa arr = computeS $ fromFunction (Z :. m :. n) $ \(Z :. i :. j) -> arr A.! (i A.:. j)

@@ -34,6 +34,21 @@ library
   default-language:    Haskell2010
   ghc-options:         -Wall
 
+benchmark sum
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      bench
+  main-is:             Sum.hs
+  ghc-options:         -O2 -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , repa
+                     , repa-bench
+                     , massiv
+                     , massiv-bench
+                     , criterion
+                     , deepseq
+                     , vector
+  default-language:    Haskell2010
+
 benchmark mult
   type:                exitcode-stdio-1.0
   hs-source-dirs:      bench

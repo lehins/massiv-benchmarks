@@ -10,5 +10,5 @@ main :: IO ()
 main = do
   defaultMain
     [ bgroup "Repa" [benchMxM (randomMxM :: MxM U Double)]
-    , bgroup "Massiv" [A.benchMxM (A.randomMxM :: A.MxM A.P Double)]
+    , bgroup "Massiv" [A.benchMxM (A.randomMxM :: A.MxM A.U Double)]
     ]
