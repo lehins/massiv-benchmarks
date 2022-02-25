@@ -10,7 +10,13 @@ extra-deps:
 - pvar-1.0.0.0@sha256:3d4a6855b0960baee78f6956f082eb8aa1cede52d2955b7faef186d1133f7964,1893
 - primitive-0.7.1.0@sha256:6a237bb338bcc43193077ff8e8c0f0ce2de14c652231496a15672e8b563a07e2,2604
 - scheduler-2.0.0@sha256:3f053e3ff024fdcdd0983fb901313ef979921bc27e12dec97cd330878ddf78b1,2525
-- hmatrix-0.20.1@sha256:e1b5c4daba357a9106159ff1635c898b10c4a28fd6179d7f92162fda4a40b0f7,5200
+- hmatrix-0.20.2
+- criterion-1.5.13.0@sha256:903794c1ef05599e36c962d992cbe7c80abf4674b2c748308d36fb70badaebf6,5650
+- js-chart-2.9.4.1@sha256:0f4bc23d19ac869ec0cbdbd7596a5074ba4be68e85fa5bb76a3bed559907b3bc,1802
+
 flags:
   hmatrix:
     openblas: true
+nix:
+  enable: true
+  packages: [ openblasCompat ]
